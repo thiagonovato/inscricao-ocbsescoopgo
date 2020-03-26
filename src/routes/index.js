@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch } from "react-router-dom";
+import { Switch } from "react-router";
 import Route from "./Route";
 
 // Importando as páginas
@@ -9,13 +9,11 @@ import Noticias from "../pages/AdminNoticias";
 
 export default function Routes() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" exact component={Form} />
-        <Route path="/signin" component={SignIn} />
-        <Route path="/adm/noticias" component={Noticias} isPrivate />
-        <Route path="/" component={() => <h1>404</h1>} />
-      </Switch>
-    </BrowserRouter>
+    <Switch>
+      <Route path="/" exact component={Form} />
+      <Route path="/signin" component={SignIn} />
+      <Route path="/adm/noticias" component={Noticias} isPrivate />
+      <Route path="/" component={() => <h1>404</h1>} />
+    </Switch>
   );
 }
