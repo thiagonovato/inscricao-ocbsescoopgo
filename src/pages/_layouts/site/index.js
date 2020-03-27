@@ -1,19 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Header from "../../../components/adm/Header";
+import Header from "../../../components/site/Header";
 
 import { Wrapper } from "./styles";
 
-export default function DefaultLayout({ children }) {
+export default function SiteLayout({ children }) {
   return (
     <Wrapper>
-      <Header />
-      {children}
+      <Header>{children}</Header>
     </Wrapper>
   );
 }
 
-DefaultLayout.propTypes = {
+SiteLayout.propTypes = {
   children: PropTypes.element.isRequired
 };

@@ -11,7 +11,7 @@ export default function Routes() {
   return (
     <Switch>
       <Route path="/" exact component={Form} />
-      <Route path="/signin" component={SignIn} />
+      <Route path="/signin" component={SignIn} auth />
       <Route path="/adm/noticias" component={Noticias} isPrivate />
       <Route path="/" component={() => <h1>404</h1>} />
     </Switch>
