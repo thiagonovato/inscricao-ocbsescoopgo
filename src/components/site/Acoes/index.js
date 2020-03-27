@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
+import gifLoading from "../../../assets/loading.gif";
 import { getAcoesRequest } from "../../../store/modules/acoes/actions";
 
 import { Container, Titulo, Noticia } from "./styles";
@@ -26,7 +27,7 @@ export default function Acoes() {
       </Titulo>
       {loading && (
         <div>
-          <chamada>Carregando...</chamada>
+          <img src={gifLoading} alt="loading..." />
         </div>
       )}
       {acoes &&
