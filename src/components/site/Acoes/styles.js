@@ -31,6 +31,7 @@ export const Noticia = styled.div`
   div {
     display: flex;
     flex-direction: column;
+    padding: 0 0 0 15px;
 
     titulo {
       font-size: 22px;

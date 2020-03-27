@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
-import logo from "../../../assets/logo-covid.png";
+import { getAcoesRequest } from "../../../store/modules/acoes/actions";
 
 import { Container, Titulo, Noticia } from "./styles";
 
 export default function Acoes() {
+  const dispatch = useDispatch();
+
+  const loading = useSelector(state => state.acoes.loading);
+  const acoes = useSelector(state => state.acoes.acoes);
+
+  useEffect(() => {
+    dispatch(getAcoesRequest());
+  }, []);
+
   return (
     <Container>
       <Titulo>
@@ -14,34 +24,24 @@ export default function Acoes() {
           goianas frente à crise gerada pelo COVID-19 (coronavírus)
         </span>
       </Titulo>
-      <Noticia>
-        <img src={logo} alt="Noticia" />
+      {loading && (
         <div>
-          <titulo>Aqui é o título</titulo>
-          <chamada>Aqui é o copor da notícia</chamada>
+          <chamada>Carregando...</chamada>
         </div>
-      </Noticia>
-      <Noticia>
-        <img src={logo} alt="Noticia" />
-        <div>
-          <titulo>Aqui é o título</titulo>
-          <chamada>Aqui é o copor da notícia</chamada>
-        </div>
-      </Noticia>
-      <Noticia>
-        <img src={logo} alt="Noticia" />
-        <div>
-          <titulo>Aqui é o título</titulo>
-          <chamada>Aqui é o copor da notícia</chamada>
-        </div>
-      </Noticia>
-      <Noticia>
-        <img src={logo} alt="Noticia" />
-        <div>
-          <titulo>Aqui é o título</titulo>
-          <chamada>Aqui é o copor da notícia</chamada>
-        </div>
-      </Noticia>
+      )}
+      {acoes &&
+        acoes.length > 0 &&
+        acoes.map(acao => {
+          return (
+            <Noticia>
+              <img src={acao.img} alt="Noticia" />
+              <div>
+                <titulo>{acao.titulo}</titulo>
+                <chamada>{acao.chamada}</chamada>
+              </div>
+            </Noticia>
+          );
+        })}
     </Container>
   );
 }

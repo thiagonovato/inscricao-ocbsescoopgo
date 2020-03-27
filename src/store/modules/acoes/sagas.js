@@ -1,13 +1,13 @@
 import { takeLatest, call, put, all, take } from "redux-saga/effects";
 import { toast } from "react-toastify";
 
-import { getNoticiasSuccess } from "./actions";
+import { getAcoesSuccess } from "./actions";
 
 import { rsf } from "../../../config/Firebase";
 
-export function* getNoticias() {
+export function* getAcoes() {
   try {
-    const snapshot = yield call(rsf.firestore.getCollection, "noticias");
+    const snapshot = yield call(rsf.firestore.getCollection, "acoes");
 
     let data = [];
     snapshot.forEach(doc => {
@@ -17,10 +17,10 @@ export function* getNoticias() {
       });
     });
 
-    yield put(getNoticiasSuccess(data));
+    yield put(getAcoesSuccess(data));
   } catch (e) {
     toast.error(`Erro...`);
   }
 }
 
-export default all([takeLatest("@noticias/GET_NOTICIAS_REQUEST", getNoticias)]);
+export default all([takeLatest("@acoes/GET_ACOES_REQUEST", getAcoes)]);
