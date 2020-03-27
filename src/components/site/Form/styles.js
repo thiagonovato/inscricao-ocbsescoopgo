@@ -3,6 +3,7 @@ import { darken } from "polished";
 
 export const Container = styled.div`
   font-size: 25px;
+  padding: 0 0 30px;
 
   span {
     display: flex;
