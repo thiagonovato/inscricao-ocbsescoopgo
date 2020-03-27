@@ -1,5 +1,5 @@
 import { eventChannel } from "redux-saga";
-import { takeLatest, call, put, all, take } from "redux-saga/effects";
+import { takeLatest, put, all } from "redux-saga/effects";
 import { toast } from "react-toastify";
 import history from "../../../services/history";
 

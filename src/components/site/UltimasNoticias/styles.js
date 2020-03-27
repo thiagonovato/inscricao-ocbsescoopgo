@@ -30,7 +30,7 @@ export const Container = styled.div`
       font-size: 12px;
     }
 
-    url {
+    a {
       font-size: 10px;
     }
   }

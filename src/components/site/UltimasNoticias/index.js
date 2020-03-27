@@ -1,43 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
-import { Container, Botao } from "./styles";
+import { getNoticiasRequest } from "../../../store/modules/noticias/actions";
+
+import { Container } from "./styles";
 
 export default function UltimasNoticias() {
+  const dispatch = useDispatch();
+
+  const loading = useSelector(state => state.noticias.loading);
+  const noticias = useSelector(state => state.noticias.noticias);
+
+  useEffect(() => {
+    dispatch(getNoticiasRequest());
+  }, []);
+
   return (
     <Container>
       <span>ÚLTIMAS NOTÍCIAS</span>
-      <div>
-        <titulo>Nome da Cooperativa</titulo>
-        <chamada>
-          Aqui está a chamada chamada chamada chamada chamada chamada chamada
-          chamada chamada chamada chamada chamada
-        </chamada>
-        <url>Aqui é a urlllllllllllllllllllllllllllll</url>
-      </div>
-      <div>
-        <titulo>Nome da Cooperativa</titulo>
-        <chamada>
-          Aqui está a chamada chamada chamada chamada chamada chamada chamada
-          chamada chamada chamada chamada chamada
-        </chamada>
-        <url>Aqui é a urlllllllllllllllllllllllllllll</url>
-      </div>
-      <div>
-        <titulo>Nome da Cooperativa</titulo>
-        <chamada>
-          Aqui está a chamada chamada chamada chamada chamada chamada chamada
-          chamada chamada chamada chamada chamada
-        </chamada>
-        <url>Aqui é a urlllllllllllllllllllllllllllll</url>
-      </div>
-      <div>
-        <titulo>Nome da Cooperativa</titulo>
-        <chamada>
-          Aqui está a chamada chamada chamada chamada chamada chamada chamada
-          chamada chamada chamada chamada chamada
-        </chamada>
-        <url>Aqui é a urlllllllllllllllllllllllllllll</url>
-      </div>
+      {loading && (
+        <div>
+          <chamada>Carregando...</chamada>
+        </div>
+      )}
+      {noticias &&
+        noticias.length > 0 &&
+        noticias.map(noticia => {
+          return (
+            <div>
+              <titulo>{noticia.titulo}</titulo>
+              <chamada>{noticia.chamada}</chamada>
+              <a href={`http://${noticia.url}`} target="_blank">
+                {noticia.url}
+              </a>
+            </div>
+          );
+        })}
     </Container>
   );
 }
