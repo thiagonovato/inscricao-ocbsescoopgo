@@ -18,8 +18,12 @@ export default function SignIn() {
   const dispatch = useDispatch();
   const loading = useSelector(state => state.auth.loading);
 
-  function handlerSubmit({ email, password }) {
+  function handlerSubmit(data, { resetForm }) {
+    let { email, password } = data;
+
     dispatch(signInRequest(email, password));
+
+    resetForm();
   }
 
   return (
