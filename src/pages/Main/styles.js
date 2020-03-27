@@ -6,4 +6,8 @@ export const Container = styled.div`
 
   display: flex;
   justify-content: space-between;
+
+  div {
+    max-width: 600px;
+  }
 `;

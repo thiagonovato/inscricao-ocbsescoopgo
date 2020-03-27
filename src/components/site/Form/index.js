@@ -1,15 +1,30 @@
 import React from "react";
 
-import { Container } from "./styles";
+import { Container, Botao } from "./styles";
 
-export default function Form() {
+import { Form, Input } from "@rocketseat/unform";
+
+export default function FormComponent() {
   return (
     <Container>
-      <div>COOPERATIVISMO GOIANO CONTRA O CORONA-VÍRUS</div>
-      <span>
-        Veja aqui todas as ações do Sistema OCB/SESCOOP-GO e das cooperativas
-        goianas frente à crise gerada pelo COVID-19 (coronavírus)
-      </span>
+      <Form>
+        <span>COOPERATIVA ENVIE SUA AÇÃO</span>
+        <div>
+          <label>Nome da Cooperativa</label>
+          <Input name="cooperativa" placeholder="Nome da cooperativa" />
+        </div>
+        <div>
+          <label>Título/Ação</label>
+          <Input name="titulo" placeholder="Título/ação" />
+        </div>
+        <div>
+          <label>Mensagem</label>
+          <Input name="mensagem" placeholder="Mensagem" multiline />
+        </div>
+        <Botao>
+          <button type="submit">Enviar</button>
+        </Botao>
+      </Form>
     </Container>
   );
 }
