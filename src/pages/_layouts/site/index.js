@@ -8,7 +8,8 @@ import { Wrapper } from "./styles";
 export default function SiteLayout({ children }) {
   return (
     <Wrapper>
-      <Header>{children}</Header>
+      <Header />
+      {children}
     </Wrapper>
   );
 }

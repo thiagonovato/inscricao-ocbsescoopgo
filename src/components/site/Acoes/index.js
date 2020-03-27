@@ -2,7 +2,7 @@ import React from "react";
 
 import { Container } from "./styles";
 
-export default function Form() {
+export default function Acoes() {
   return (
     <Container>
       <div>COOPERATIVISMO GOIANO CONTRA O CORONA-VÍRUS</div>
