@@ -42,5 +42,9 @@ export const Noticia = styled.div`
     chamada {
       font-size: 16px;
     }
+
+    a {
+      padding-top: 20px;
+    }
   }
 `;

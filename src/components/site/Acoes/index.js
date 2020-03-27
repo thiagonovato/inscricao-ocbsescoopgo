@@ -38,6 +38,9 @@ export default function Acoes() {
               <div>
                 <titulo>{acao.titulo}</titulo>
                 <chamada>{acao.chamada}</chamada>
+                <a href={`http://${acao.url}`} target="_blank">
+                  Leia mais
+                </a>
               </div>
             </Noticia>
           );
