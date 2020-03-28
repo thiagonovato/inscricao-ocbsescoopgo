@@ -9,6 +9,7 @@ import Noticias from "../pages/AdminNoticias";
 //Importando páginas - site
 import Main from "../pages/Main";
 import UltimasNoticias from "../pages/UltimasNoticias";
+import Acoes from "../pages/Acoes";
 
 export default function Routes() {
   return (
@@ -18,7 +19,7 @@ export default function Routes() {
       <Route path="/decretosfederais" component={Main} />
       <Route path="/decretosestaduais" component={Main} />
       <Route path="/decretosmunicipais" component={Main} />
-      <Route path="/acoes" component={Main} />
+      <Route path="/acoes" component={Acoes} />
       <Route path="/ultimasnoticias" component={UltimasNoticias} />
       <Route path="/signin" component={SignIn} auth />
       <Route path="/adm/noticias" component={Noticias} isPrivate />

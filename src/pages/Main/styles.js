@@ -1,13 +1,22 @@
 import styled from "styled-components";
+import px2vw from "../../utils/px2x";
 
 export const Container = styled.div`
-  max-width: 1200px;
-  margin: 50px auto;
-
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  margin: ${px2vw(32)};
+  max-width: 100%;
+  @media (min-width: 1024px) {
+    flex-wrap: nowrap;
+  }
+
+  /* justify-content: space-between; */
+  /* max-width: 1200px;
+  margin: 50px auto; */
 
   div {
-    max-width: 600px;
+    max-width: 748px;
   }
 `;
