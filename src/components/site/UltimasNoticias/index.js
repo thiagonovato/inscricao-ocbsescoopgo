@@ -21,6 +21,7 @@ export default function UltimasNoticias() {
       {loading && <img src={gifLoading} alt="loading..." />}
       {noticias &&
         noticias.length > 0 &&
+        noticias.length < 10 &&
         noticias.map(noticia => {
           return (
             <div>

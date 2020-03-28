@@ -1,12 +1,25 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  font-size: 25px;
+  max-width: 1200px;
+  margin: 50px auto;
+
+  display: flex;
+  justify-content: space-between;
+
+  div {
+    max-width: 600px;
+  }
+`;
+
+export const Noticias = styled.div`
   border: 1px solid;
   border-color: #9797a6;
   border-radius: 4px;
+  width: 800px;
 
   span {
+    font-size: 25px;
     display: flex;
     padding: 10px 50px 10px 10px;
     background: #694197;

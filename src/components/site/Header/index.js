@@ -13,7 +13,9 @@ export default function Header() {
     <Container>
       <Content>
         <div>
-          <img src={logoOcb} alt="Logo OCB" />
+          <Link to="/">
+            <img src={logoOcb} alt="Logo OCB" />
+          </Link>
         </div>
         <span>
           <img src={logoSomosCoop} alt="SomoCoop" />
@@ -24,22 +26,22 @@ export default function Header() {
       </Content>
       <Menu>
         <div>
-          <Link to="/">COMUNICADOS SISTEMA OCB-GO</Link>
+          <Link to="/comunicados">COMUNICADOS SISTEMA OCB-GO</Link>
         </div>
         <div>
-          <Link to="/">DECRETOS FEDERAIS</Link>
+          <Link to="/decretosfederais">DECRETOS FEDERAIS</Link>
         </div>
         <div>
-          <Link to="/">DECRETOS ESTADUAIS</Link>
+          <Link to="/decretosestaduais">DECRETOS ESTADUAIS</Link>
         </div>
         <div>
-          <Link to="/">DECRETOS MUNICIPAIS</Link>
+          <Link to="/decretosmunicipais">DECRETOS MUNICIPAIS</Link>
         </div>
         <div>
-          <Link to="/">AÇÕES DAS COOPERATIVAS GOIANAS</Link>
+          <Link to="/acoes">AÇÕES DAS COOPERATIVAS GOIANAS</Link>
         </div>
         <div>
-          <Link to="/">ÚLTIMAS NOTÍCIAS</Link>
+          <Link to="/ultimasnoticias">ÚLTIMAS NOTÍCIAS</Link>
         </div>
       </Menu>
     </Container>

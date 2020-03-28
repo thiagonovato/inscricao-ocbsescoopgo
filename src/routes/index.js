@@ -2,15 +2,24 @@ import React from "react";
 import { Switch } from "react-router-dom";
 import Route from "./Route";
 
-// Importando as páginas
-import Main from "../pages/Main";
+// Importando as páginas - Auth
 import SignIn from "../pages/SignIn";
 import Noticias from "../pages/AdminNoticias";
+
+//Importando páginas - site
+import Main from "../pages/Main";
+import UltimasNoticias from "../pages/UltimasNoticias";
 
 export default function Routes() {
   return (
     <Switch>
       <Route path="/" exact component={Main} />
+      <Route path="/comunicados" component={Main} />
+      <Route path="/decretosfederais" component={Main} />
+      <Route path="/decretosestaduais" component={Main} />
+      <Route path="/decretosmunicipais" component={Main} />
+      <Route path="/acoes" component={Main} />
+      <Route path="/ultimasnoticias" component={UltimasNoticias} />
       <Route path="/signin" component={SignIn} auth />
       <Route path="/adm/noticias" component={Noticias} isPrivate />
       <Route path="/" component={() => <h1>404</h1>} />
