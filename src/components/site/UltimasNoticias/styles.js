@@ -28,6 +28,7 @@ export const Container = styled.div`
 
     chamada {
       font-size: 12px;
+      padding: 2px 0 2px 0;
     }
 
     a {
