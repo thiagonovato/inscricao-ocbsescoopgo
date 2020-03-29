@@ -17,35 +17,46 @@ export default function Acoes() {
   }, []);
 
   return (
-    <Container>
-      <Titulo>
-        <div>COOPERATIVISMO GOIANO CONTRA O CORONA-VÍRUS</div>
-        <span>
-          Veja aqui todas as ações do Sistema OCB/SESCOOP-GO e das cooperativas
-          goianas frente à crise gerada pelo COVID-19 (coronavírus)
-        </span>
-      </Titulo>
-      {loading && (
-        <div>
-          <img src={gifLoading} alt="loading..." />
+    <>
+      <div className="row">
+        <div className="col-sm-12">
+          <div className="tituloPrincipal">
+            COOPERATIVISMO GOIANO CONTRA O CORONA-VÍRUS
+          </div>
+          <div className="tituloSecundario">
+            Veja aqui todas as ações do Sistema OCB/SESCOOP-GO e das
+            cooperativas goianas frente à crise gerada pelo COVID-19
+            (coronavírus)
+          </div>
         </div>
-      )}
-      {acoes &&
-        acoes.length > 0 &&
-        acoes.map(acao => {
-          return (
-            <Noticia>
-              <img src={acao.img} alt="Noticia" />
-              <div>
-                <titulo>{acao.titulo}</titulo>
-                <chamada>{acao.chamada}</chamada>
-                <a href={`http://${acao.url}`} target="_blank">
-                  Leia mais
-                </a>
+      </div>
+      <div className="row">
+        {loading && <img src={gifLoading} alt="loading..." />}
+        {acoes &&
+          acoes.length > 0 &&
+          acoes.map(acao => {
+            return (
+              <div className="row acaoPrincipal">
+                <div className="col-sm-6" style={{ textAlign: "center" }}>
+                  <img src={acao.img} alt="Noticia" className="imgPrincipal" />
+                </div>
+                <div className="col-sm-6">
+                  <div className="nomeAcao">{acao.titulo}</div>
+                  <div className="chamadaAcao">{acao.chamada}</div>
+                  <div className="urlAcao">
+                    <a
+                      className="urlNoticia"
+                      href={`http://${acao.url}`}
+                      target="_blank"
+                    >
+                      Leia mais
+                    </a>
+                  </div>
+                </div>
               </div>
-            </Noticia>
-          );
-        })}
-    </Container>
+            );
+          })}
+      </div>
+    </>
   );
 }

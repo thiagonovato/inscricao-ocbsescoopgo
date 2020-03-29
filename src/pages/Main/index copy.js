@@ -4,20 +4,20 @@ import Acoes from "../../components/site/Acoes";
 import Formulario from "../../components/site/Form";
 import UltimasNoticias from "../../components/site/UltimasNoticias";
 
+import { Container } from "./styles";
+
 export default function FormPage() {
   return (
-    <div className="row">
-      <div className="col-sm-8">
-        <Acoes />
-      </div>
-      <div className="col-sm-4">
-        <div style={{ paddingBottom: "5px" }}>
-          <Formulario />
+    <>
+      <Container>
+        <div>
+          <Acoes />
         </div>
         <div>
+          <Formulario />
           <UltimasNoticias />
         </div>
-      </div>
-    </div>
+      </Container>
+    </>
   );
 }

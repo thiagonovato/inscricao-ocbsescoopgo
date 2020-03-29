@@ -6,15 +6,9 @@ export const Container = styled.div`
   flex-wrap: wrap;
   justify-content: center;
 
-  margin: ${px2vw(32)};
-  max-width: 100%;
-  @media (min-width: 1024px) {
-    flex-wrap: nowrap;
-  }
-
-  /* justify-content: space-between; */
-  /* max-width: 1200px;
-  margin: 50px auto; */
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 50px auto;
 
   div {
     max-width: 748px;

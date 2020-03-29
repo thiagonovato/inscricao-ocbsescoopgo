@@ -1,30 +1,48 @@
 import React from "react";
 
-import { Container, Botao } from "./styles";
-
 import { Form, Input } from "@rocketseat/unform";
 
 export default function FormComponent() {
   return (
-    <Container>
+    <div className="titulos">
+      <div class="col tituloPagina">COOPERATIVA ENVIE SUA AÇÃO</div>
       <Form>
-        <span>COOPERATIVA ENVIE SUA AÇÃO</span>
-        <div>
-          <label>Nome da Cooperativa</label>
-          <Input name="cooperativa" placeholder="Nome da cooperativa" />
+        <div className="itemForm">
+          <label>Nome da cooperativa</label>
+          <Input
+            name="cooperativa"
+            placeholder="Nome da cooperativa"
+            className="textForm"
+          />
         </div>
-        <div>
-          <label>Título/Ação</label>
-          <Input name="titulo" placeholder="Título/ação" />
+        <div className="itemForm">
+          <label>Título/ação</label>
+          <Input name="titulo" placeholder="Título/ação" className="textForm" />
         </div>
-        <div>
+        <div className="itemForm">
+          <label>Nome da cooperativa</label>
+          <Input
+            name="cooperativa"
+            placeholder="Nome da cooperativa"
+            className="textForm"
+          />
+        </div>
+        <div className="itemForm">
           <label>Mensagem</label>
-          <Input name="mensagem" placeholder="Mensagem" multiline />
+          <Input
+            name="mensagem"
+            placeholder="Mensagem"
+            multiline
+            className="textArea"
+          />
         </div>
-        <Botao>
-          <button type="submit">Enviar</button>
-        </Botao>
+
+        <div className="buttonForm">
+          <button type="submit" className="button">
+            Enviar
+          </button>
+        </div>
       </Form>
-    </Container>
+    </div>
   );
 }

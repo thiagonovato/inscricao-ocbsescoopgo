@@ -1,49 +1,49 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import logoOcb from "../../../assets/logo-ocb.png";
 import logoSomosCoop from "../../../assets/somoscoop.png";
 import logoCovid from "../../../assets/logo-covid.png";
 
-import { Container, Content, Menu } from "./styles";
-
 export default function Header() {
   return (
-    <Container>
-      <Content>
-        <div>
+    <div className="container">
+      <div className="row">
+        <div className="col-6 col-md-4 imagemMenu">
           <Link to="/">
-            <img src={logoOcb} alt="Logo OCB" />
+            <img src={logoOcb} alt="OCB-GO" style={{ height: "50px" }} />
           </Link>
         </div>
-        <span>
-          <img src={logoSomosCoop} alt="SomoCoop" />
-        </span>
-        <aside>
-          <img src={logoCovid} alt="Covid" />
-        </aside>
-      </Content>
-      <Menu>
-        <div>
+        <div className="col-6 col-md-4 imagemMenu imagemMenuSomosCoop">
+          <img src={logoSomosCoop} alt="OCB-GO" style={{ height: "50px" }} />
+        </div>
+        <div
+          className="col-6 col-md-4 imagemMenu"
+          style={{ justifyContent: "flex-end" }}
+        >
+          <img src={logoCovid} alt="OCB-GO" className="imagemCovid" />
+        </div>
+      </div>
+      <div className="row">
+        <div className="col buttonMenu">
           <Link to="/comunicados">COMUNICADOS SISTEMA OCB-GO</Link>
         </div>
-        <div>
+        <div className="col buttonMenu">
           <Link to="/decretosfederais">DECRETOS FEDERAIS</Link>
         </div>
-        <div>
+        <div className="col buttonMenu">
           <Link to="/decretosestaduais">DECRETOS ESTADUAIS</Link>
         </div>
-        <div>
+        <div className="col buttonMenu">
           <Link to="/decretosmunicipais">DECRETOS MUNICIPAIS</Link>
         </div>
-        <div>
+        <div className="col buttonMenu">
           <Link to="/acoes">AÇÕES DAS COOPERATIVAS GOIANAS</Link>
         </div>
-        <div>
+        <div className="col buttonMenu">
           <Link to="/ultimasnoticias">ÚLTIMAS NOTÍCIAS</Link>
         </div>
-      </Menu>
-    </Container>
+      </div>
+    </div>
   );
 }

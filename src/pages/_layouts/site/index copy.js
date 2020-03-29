@@ -3,12 +3,14 @@ import PropTypes from "prop-types";
 
 import Header from "../../../components/site/Header";
 
+import { Wrapper } from "./styles";
+
 export default function SiteLayout({ children }) {
   return (
-    <div class="container">
+    <Wrapper>
       <Header />
       {children}
-    </div>
+    </Wrapper>
   );
 }
 

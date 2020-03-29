@@ -6,8 +6,6 @@ import { getNoticiasRequest } from "../../store/modules/noticias/actions";
 
 import Formulario from "../../components/site/Form";
 
-import { Container, Noticias } from "./styles";
-
 export default function UltimasNoticiasPage() {
   const dispatch = useDispatch();
 
@@ -19,29 +17,31 @@ export default function UltimasNoticiasPage() {
   }, []);
 
   return (
-    <>
-      <Container>
-        <Noticias>
-          <span>ÚLTIMAS NOTÍCIAS</span>
-          {loading && <img src={gifLoading} alt="loading..." />}
-          {noticias &&
-            noticias.length > 0 &&
-            noticias.map(noticia => {
-              return (
-                <div>
-                  <titulo>{noticia.titulo}</titulo>
-                  <chamada>{noticia.chamada}</chamada>
-                  <a href={`http://${noticia.url}`} target="_blank">
-                    {noticia.url}
-                  </a>
-                </div>
-              );
-            })}
-        </Noticias>
-        <div>
-          <Formulario />
-        </div>
-      </Container>
-    </>
+    <div className="row">
+      <div className="col-sm-8">
+        <div className="tituloPagina">ÚLTIMAS NOTÍCIAS</div>
+        {loading && <img src={gifLoading} alt="loading..." />}
+        {noticias &&
+          noticias.length > 0 &&
+          noticias.map(data => {
+            return (
+              <div className="noticia">
+                <div className="tituloNoticia">{data.titulo}</div>
+                <div className="chamadaNoticia">{data.chamada}</div>
+                <a
+                  href={`http://${data.url}`}
+                  target="_blank"
+                  className="urlNoticia"
+                >
+                  {data.url}
+                </a>
+              </div>
+            );
+          })}
+      </div>
+      <div className="col-sm-4">
+        <Formulario />
+      </div>
+    </div>
   );
 }

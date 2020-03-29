@@ -16,23 +16,30 @@ export default function UltimasNoticias() {
   }, []);
 
   return (
-    <Container>
-      <span>ÚLTIMAS NOTÍCIAS</span>
-      {loading && <img src={gifLoading} alt="loading..." />}
-      {noticias &&
-        noticias.length > 0 &&
-        noticias.length < 10 &&
-        noticias.map(noticia => {
-          return (
-            <div>
-              <titulo>{noticia.titulo}</titulo>
-              <chamada>{noticia.chamada}</chamada>
-              <a href={`http://${noticia.url}`} target="_blank">
-                {noticia.url}
-              </a>
-            </div>
-          );
-        })}
-    </Container>
+    <div className="titulos">
+      <div className="row">
+        <div className="col-sm-12">
+          <div className="tituloPagina">ÚLTIMAS NOTÍCIAS</div>
+          {loading && <img src={gifLoading} alt="loading..." />}
+          {noticias &&
+            noticias.length > 0 &&
+            noticias.map(data => {
+              return (
+                <div className="noticia">
+                  <div className="tituloNoticia">{data.titulo}</div>
+                  <div className="chamadaNoticia">{data.chamada}</div>
+                  <a
+                    href={`http://${data.url}`}
+                    target="_blank"
+                    className="urlNoticia"
+                  >
+                    {data.url}
+                  </a>
+                </div>
+              );
+            })}
+        </div>
+      </div>
+    </div>
   );
 }

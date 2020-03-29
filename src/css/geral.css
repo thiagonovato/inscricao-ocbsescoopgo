@@ -1,0 +1,162 @@
+/* Geral */
+
+a:link {
+  color: #fff;
+}
+
+a:visited {
+  color: #fff;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  color: #fff;
+}
+
+/* Menu */
+
+.imagemMenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagemCovid {
+  height: 150px;
+}
+
+@media (max-width: 1024px) {
+  .imagemMenuSomosCoop {
+    display: none;
+  }
+  .imagemCovid {
+    height: 50px;
+  }
+}
+
+.buttonMenu {
+  font-weight: bold;
+  color: #fff;
+  background: #694197;
+  height: 50px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  padding: 30px;
+  margin: 3px;
+}
+
+.tituloPagina {
+  font-size: 25px;
+  display: flex;
+  padding: 10px 50px 10px 10px;
+  background: #694197;
+  color: #fff;
+}
+
+.titulos {
+  border: 1px solid;
+  border-color: #9797a6;
+  border-radius: 4px;
+}
+
+.noticia {
+  padding: 10px;
+}
+
+.tituloNoticia {
+  font-weight: bold;
+  color: #694197;
+  font-size: 14px;
+}
+.chamadaNoticia {
+  font-size: 12px;
+}
+a.urlNoticia {
+  font-size: 10px;
+  color: blue;
+}
+
+.itemForm {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+.textForm {
+  background: rgba(0, 0, 0, 0.1);
+  border: 0;
+  border-radius: 4px;
+  height: 44px;
+  padding: 0 15px;
+  color: #000;
+  margin: 0 0 10px;
+}
+
+.textArea {
+  background: rgba(0, 0, 0, 0.1);
+  border: 0;
+  border-radius: 4px;
+  height: 44px;
+  padding: 0 15px;
+  color: #000;
+  margin: 0 0 10px;
+  height: 80px;
+}
+
+.buttonForm {
+  padding: 0 0 10px;
+  text-align: center;
+}
+.button {
+  height: 44px;
+  width: 200px;
+  background: #694197;
+  font-weight: bold;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.acaoPrincipal {
+  padding: 10px;
+}
+
+.tituloPrincipal {
+  font-size: 40px;
+  padding: 0 0 20px;
+  color: #694197;
+  font-weight: bold;
+  text-align: center;
+}
+
+.tituloSecundario {
+  font-size: 16px;
+  text-align: center;
+  padding: 0 20px 20px;
+}
+
+.imgPrincipal {
+  height: 150px;
+  border-radius: 50px;
+}
+.nomeAcao {
+  font-size: 22px;
+  font-weight: bold;
+  padding: 5px 0;
+}
+.chamadaAcao {
+  font-size: 16px;
+}
+
+a.urlAcao {
+  color: blue;
+}
