@@ -29,15 +29,6 @@ a:active {
   height: 150px;
 }
 
-@media (max-width: 1024px) {
-  .imagemMenuSomosCoop {
-    display: none;
-  }
-  .imagemCovid {
-    height: 50px;
-  }
-}
-
 .buttonMenu {
   font-weight: bold;
   color: #fff;
@@ -54,7 +45,7 @@ a:active {
 }
 
 .tituloPagina {
-  font-size: 25px;
+  font-size: 22px;
   display: flex;
   padding: 10px 50px 10px 10px;
   background: #694197;
@@ -159,4 +150,19 @@ a.urlNoticia {
 
 a.urlAcao {
   color: blue;
+}
+
+@media (max-width: 1024px) {
+  .imagemMenuSomosCoop {
+    display: none;
+  }
+  .imagemCovid {
+    height: 50px;
+  }
+  .tituloPrincipal {
+    font-size: 26px;
+  }
+  .tituloPagina {
+    font-size: 18px;
+  }
 }
