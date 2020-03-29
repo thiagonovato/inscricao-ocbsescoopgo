@@ -6,8 +6,6 @@ import { getAcoesRequest } from "../../store/modules/acoes/actions";
 
 import Formulario from "../../components/site/Form";
 
-import { Container, Acoes, Acao } from "./styles";
-
 export default function AcoessPage() {
   const dispatch = useDispatch();
 
@@ -19,36 +17,42 @@ export default function AcoessPage() {
   }, []);
 
   return (
-    <>
-      <Container>
-        <Acoes>
-          <span>COOPERATIVISMO GOIANO CONTRA O CORONA-VÍRUS</span>
-          {loading && (
-            <div>
-              <img src={gifLoading} alt="loading..." />
-            </div>
-          )}
-          {acoes &&
-            acoes.length > 0 &&
-            acoes.map(acao => {
-              return (
-                <Acao>
-                  <img src={acao.img} alt="Acao" />
-                  <div>
-                    <titulo>{acao.titulo}</titulo>
-                    <chamada>{acao.chamada}</chamada>
-                    <a href={`http://${acao.url}`} target="_blank">
+    <div className="row">
+      <div className="col-sm-8">
+        <div className="tituloPagina">AÇÕES DAS COOPERATIVAS GOIANAS</div>
+        <div className="tituloSecundario">
+          Veja aqui todas as ações do Sistema OCB/SESCOOP-GO e das cooperativas
+          goianas frente à crise gerada pelo COVID-19 (coronavírus)
+        </div>
+        {loading && <img src={gifLoading} alt="loading..." />}
+        {acoes &&
+          acoes.length > 0 &&
+          acoes.map(data => {
+            return (
+              <div className="row acaoPrincipal">
+                <div className="col-sm-6" style={{ textAlign: "center" }}>
+                  <img src={data.img} alt="Noticia" className="imgPrincipal" />
+                </div>
+                <div className="col-sm-6">
+                  <div className="nomeAcao">{data.titulo}</div>
+                  <div className="chamadaAcao">{data.chamada}</div>
+                  <div className="urlAcao">
+                    <a
+                      className="urlNoticia"
+                      href={`http://${data.url}`}
+                      target="_blank"
+                    >
                       Leia mais
                     </a>
                   </div>
-                </Acao>
-              );
-            })}
-        </Acoes>
-        <div>
-          <Formulario />
-        </div>
-      </Container>
-    </>
+                </div>
+              </div>
+            );
+          })}
+      </div>
+      <div className="col-sm-4">
+        <Formulario />
+      </div>
+    </div>
   );
 }
