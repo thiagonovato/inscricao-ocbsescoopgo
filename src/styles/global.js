@@ -13,22 +13,9 @@ export default createGlobalStyle`
   box-sizing: border-box
 }
 
-*:focus {
-  outline: 0;
-  
-  font-size: ${px2vw(24)};
-
-      @media (min-width: 768px) {
-        font-size: ${px2vw(18)};
-      }
-
-      @media (min-width: 1024px) {
-        font-size: ${px2vw(16)};
-      }
-}
-
 html, body, #root {
-  height: 100%
+  height: 100%;
+  background: linear-gradient(#e6e7e9, #fff);
 }
 
 body {
