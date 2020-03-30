@@ -19,7 +19,7 @@ export default function Acoes() {
       <div className="row">
         <div className="col-sm-12">
           <div className="tituloPrincipal">
-            COOPERATIVISMO GOIANO CONTRA O CORONA-VÍRUS
+            COOPERATIVISMO GOIANO CONTRA O CORONAVÍRUS
           </div>
           <div className="tituloSecundario">
             Veja aqui todas as ações do Sistema OCB/SESCOOP-GO e das

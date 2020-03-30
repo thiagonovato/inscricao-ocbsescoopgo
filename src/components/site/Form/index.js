@@ -31,6 +31,7 @@ export default function FormComponent() {
         // console.log("Upload is " + progress + "% done");
       },
       function(error) {
+        console.log("Erro ao subir o arquivo:", error);
         setLoadingSend(false);
       },
       function() {
@@ -65,54 +66,57 @@ export default function FormComponent() {
   return (
     <div className="titulos">
       <div className="col tituloPagina">COOPERATIVA ENVIE SUA AÇÃO</div>
-      <form onSubmit={handleSubmit}>
-        <div className="itemForm">
-          <label>Nome da cooperativa</label>
-          <input
-            type="text"
-            name="cooperativa"
-            placeholder="Nome da cooperativa"
-            className="textForm"
-            value={cooperativa}
-            onChange={e => setCooperativa(e.target.value)}
-          />
-        </div>
-        <div className="itemForm">
-          <label>Arquivo (Foto, vídeo etc)</label>
-          <input
-            type="file"
-            id="fileInput"
-            className="textForm"
-            onChange={e => onChangeFile(e)}
-          />
-        </div>
-        <div className="itemForm">
-          <label>Título/ação</label>
-          <input
-            name="titulo"
-            placeholder="Título/ação"
-            className="textForm"
-            value={titulo}
-            onChange={e => setTitulo(e.target.value)}
-          />
-        </div>
-        <div className="itemForm">
-          <label>Mensagem</label>
-          <textarea
-            name="mensagem"
-            placeholder="Mensagem"
-            className="textArea"
-            value={mensagem}
-            onChange={e => setMensagem(e.target.value)}
-          />
-        </div>
+      <div className="itemForm">
+        <label>Nome da cooperativa</label>
+        <input
+          type="text"
+          name="cooperativa"
+          placeholder="Nome da cooperativa"
+          className="textForm"
+          value={cooperativa}
+          onChange={e => setCooperativa(e.target.value)}
+        />
+      </div>
+      <div className="itemForm">
+        <label>Arquivo (Foto, vídeo etc)</label>
+        <input
+          type="file"
+          id="fileInput"
+          className="textForm"
+          onChange={e => onChangeFile(e)}
+        />
+      </div>
+      <div className="itemForm">
+        <label>Título/ação</label>
+        <input
+          name="titulo"
+          placeholder="Título/ação"
+          className="textForm"
+          value={titulo}
+          onChange={e => setTitulo(e.target.value)}
+        />
+      </div>
+      <div className="itemForm">
+        <label>Mensagem</label>
+        <textarea
+          name="mensagem"
+          placeholder="Mensagem"
+          className="textArea"
+          value={mensagem}
+          onChange={e => setMensagem(e.target.value)}
+        />
+      </div>
 
-        <div className="buttonForm">
-          <button type="submit" className="button" disabled={loadingSend}>
-            {loadingSend ? "Aguarde..." : "Enviar"}
-          </button>
-        </div>
-      </form>
+      <div className="buttonForm">
+        <button
+          onClick={handleSubmit}
+          type="submit"
+          className="button"
+          disabled={loadingSend}
+        >
+          {loadingSend ? "Aguarde..." : "Enviar"}
+        </button>
+      </div>
     </div>
   );
 }

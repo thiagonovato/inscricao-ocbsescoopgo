@@ -32,11 +32,7 @@ export default function UltimasNoticiasPage() {
               <div className="noticia">
                 <div className="tituloNoticia">{data.titulo}</div>
                 <div className="chamadaNoticia">{data.chamada}</div>
-                <a
-                  href={`http://${data.url}`}
-                  target="_blank"
-                  className="urlNoticia"
-                >
+                <a href={`${data.url}`} target="_blank" className="urlNoticia">
                   Visualizar
                 </a>
               </div>

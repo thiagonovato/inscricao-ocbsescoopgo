@@ -33,7 +33,7 @@ export default function UltimasNoticiasPage() {
                 <div className="tituloNoticia">{data.titulo}</div>
                 <div className="chamadaNoticia">{data.chamada}</div>
                 <a
-                  href={`http://${data.url}`}
+                  href={`${data.url}`}
                   target="_blank"
                   className="urlNoticia"
                   rel="noopener noreferrer"

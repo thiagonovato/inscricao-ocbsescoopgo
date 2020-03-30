@@ -39,7 +39,7 @@ export default function AcoessPage() {
                   <div className="urlAcao">
                     <a
                       className="urlNoticia"
-                      href={`http://${data.url}`}
+                      href={`${data.url}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >

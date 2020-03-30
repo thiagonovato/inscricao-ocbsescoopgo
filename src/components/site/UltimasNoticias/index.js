@@ -32,7 +32,7 @@ export default function UltimasNoticias() {
                     className="urlNoticia"
                     rel="noopener noreferrer"
                   >
-                    {data.url}
+                    Leia mais
                   </a>
                 </div>
               );
