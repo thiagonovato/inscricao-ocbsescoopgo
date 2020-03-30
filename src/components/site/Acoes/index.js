@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import gifLoading from "../../../assets/loading.gif";
 import { getAcoesRequest } from "../../../store/modules/acoes/actions";
-
-import { Container, Titulo, Noticia } from "./styles";
 
 export default function Acoes() {
   const dispatch = useDispatch();
@@ -34,9 +32,9 @@ export default function Acoes() {
         {loading && <img src={gifLoading} alt="loading..." />}
         {acoes &&
           acoes.length > 0 &&
-          acoes.map(acao => {
+          acoes.map((acao, key) => {
             return (
-              <div className="row acaoPrincipal">
+              <div className="row acaoPrincipal" key={key}>
                 <div className="col-sm-6" style={{ textAlign: "center" }}>
                   <img src={acao.img} alt="Noticia" className="imgPrincipal" />
                 </div>
@@ -48,6 +46,7 @@ export default function Acoes() {
                       className="urlNoticia"
                       href={`http://${acao.url}`}
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       Leia mais
                     </a>

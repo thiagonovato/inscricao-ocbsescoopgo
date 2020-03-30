@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import gifLoading from "../../assets/loading.gif";
@@ -36,6 +36,7 @@ export default function UltimasNoticiasPage() {
                   href={`http://${data.url}`}
                   target="_blank"
                   className="urlNoticia"
+                  rel="noopener noreferrer"
                 >
                   Visualizar
                 </a>

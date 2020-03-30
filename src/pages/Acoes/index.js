@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import gifLoading from "../../assets/loading.gif";
@@ -41,6 +41,7 @@ export default function AcoessPage() {
                       className="urlNoticia"
                       href={`http://${data.url}`}
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       Leia mais
                     </a>

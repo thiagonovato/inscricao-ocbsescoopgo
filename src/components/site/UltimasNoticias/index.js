@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import gifLoading from "../../../assets/loading.gif";
 import { getNoticiasRequest } from "../../../store/modules/noticias/actions";
-
-import { Container } from "./styles";
 
 export default function UltimasNoticias() {
   const dispatch = useDispatch();
@@ -23,15 +21,16 @@ export default function UltimasNoticias() {
           {loading && <img src={gifLoading} alt="loading..." />}
           {noticias &&
             noticias.length > 0 &&
-            noticias.map(data => {
+            noticias.map((data, key) => {
               return (
-                <div className="noticia">
+                <div className="noticia" key={key}>
                   <div className="tituloNoticia">{data.titulo}</div>
                   <div className="chamadaNoticia">{data.chamada}</div>
                   <a
                     href={`http://${data.url}`}
                     target="_blank"
                     className="urlNoticia"
+                    rel="noopener noreferrer"
                   >
                     {data.url}
                   </a>
