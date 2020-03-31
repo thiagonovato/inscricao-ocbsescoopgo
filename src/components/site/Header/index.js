@@ -24,9 +24,12 @@ export default function Header() {
           <img src={logoCovid} alt="OCB-GO" className="imagemCovid" />
         </div>
       </div>
-      <div className="row">
+      <div className="row" style={{ marginTop: "20px" }}>
         <div className="col buttonMenu">
-          <Link to="/comunicados">COMUNICADOS SISTEMA OCB-GO</Link>
+          <Link to="/">INÍCIO</Link>
+        </div>
+        <div className="col buttonMenu">
+          <Link to="/comunicados">COMUNICADOS OCB e OCB-GO</Link>
         </div>
         <div className="col buttonMenu">
           <Link to="/decretosfederais">DECRETOS FEDERAIS</Link>
@@ -39,9 +42,6 @@ export default function Header() {
         </div>
         <div className="col buttonMenu">
           <Link to="/acoes">AÇÕES DAS COOPERATIVAS GOIANAS</Link>
-        </div>
-        <div className="col buttonMenu">
-          <Link to="/ultimasnoticias">ÚLTIMAS NOTÍCIAS</Link>
         </div>
       </div>
     </div>

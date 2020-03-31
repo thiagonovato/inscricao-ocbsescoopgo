@@ -23,7 +23,7 @@ export default function UltimasNoticiasPage() {
   return (
     <div className="row">
       <div className="col-sm-8">
-        <div className="tituloPagina">COMUNICADOS SISTEMA OCB-GO</div>
+        <div className="tituloPagina">COMUNICADOS OCB e OCB-GO</div>
         {loading && <img src={gifLoading} alt="loading..." />}
         {decretos &&
           decretos.length > 0 &&
