@@ -24,7 +24,7 @@ export default function Header() {
           <img src={logoCovid} alt="OCB-GO" className="imagemCovid" />
         </div>
       </div>
-      <div className="row" style={{ marginTop: "20px" }}>
+      <div className="row" style={{ marginTop: "30px" }}>
         <div className="col buttonMenu">
           <Link to="/">INÍCIO</Link>
         </div>
