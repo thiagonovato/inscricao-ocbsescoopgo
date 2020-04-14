@@ -18,61 +18,20 @@ a:active {
 
 /* Menu */
 
-.imagemMenu {
+.titulo {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  margin-top: 50px;
 }
 
-.imagemCovid {
-  height: 150px;
+.imagemTitulo {
+  max-width: 500px;
 }
 
-.buttonMenu {
-  font-weight: bold;
-  color: #fff;
-  background: #694197;
-  height: 50px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-
-  padding: 30px;
-  margin: 3px;
+.imagemOcb {
+  height: 30px;
 }
-
-.tituloPagina {
-  font-size: 22px;
-  display: flex;
-  padding: 10px 50px 10px 10px;
-  background: #694197;
-  color: #fff;
-}
-
-.titulos {
-  border: 1px solid;
-  border-color: #9797a6;
-  border-radius: 4px;
-}
-
-.noticia {
-  padding: 10px;
-}
-
-.tituloNoticia {
-  font-weight: bold;
-  color: #694197;
-  font-size: 14px;
-}
-.chamadaNoticia {
-  font-size: 12px;
-}
-a.urlNoticia {
-  font-size: 10px;
-  color: blue;
+.imagemSomosCoop {
+  height: 30px;
 }
 
 .itemForm {
@@ -108,7 +67,7 @@ a.urlNoticia {
 .button {
   height: 44px;
   width: 200px;
-  background: #694197;
+  background: #052959;
   font-weight: bold;
   color: #fff;
   border: 0;
@@ -152,17 +111,24 @@ a.urlAcao {
   color: blue;
 }
 
+.fotoMarcio {
+  max-width: 400px;
+  margin-top: -150px;
+}
+
 @media (max-width: 1024px) {
-  .imagemMenuSomosCoop {
-    display: none;
+  .imagemTitulo {
+    max-width: 200px;
   }
-  .imagemCovid {
-    height: 80px;
+
+  .imagemOcb {
+    height: 15px;
   }
-  .tituloPrincipal {
-    font-size: 26px;
+  .imagemSomosCoop {
+    height: 12px;
   }
-  .tituloPagina {
-    font-size: 18px;
+  .fotoMarcio {
+    max-width: 400px;
+    margin-top: 0px;
   }
 }

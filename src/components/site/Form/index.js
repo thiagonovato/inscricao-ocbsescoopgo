@@ -1,121 +1,82 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { storage } from "../../../config/Firebase";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { setEnviosRequest } from "../../../store/modules/envios/actions";
+import InputMask from 'react-input-mask';
+
+import { Form, Input } from '@rocketseat/unform';
+import * as Yup from 'yup';
+
+import { subscriptionRequest } from '~/store/modules/subscription/actions';
+
+const schema = Yup.object().shape({
+  name: Yup.string().required('O nome é obrigatório.'),
+  cpf: Yup.string()
+    .matches(/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/, 'Seu CPF está correto?')
+    .required('O CPF é obrigatório.'),
+  email: Yup.string()
+    .email('Insira um e-mail válido.')
+    .required('O e-mail é obrigatório.'),
+  phone: Yup.string()
+    .matches(/\(\d{2,}\) \d{4,}\-\d{4}/g, 'Seu telefone está correto?')
+    .required('Telefone é obrigatório.'),
+  cooperativa: Yup.string().required('A Cooperativa é obrigatória.'),
+});
 
 export default function FormComponent() {
   const dispatch = useDispatch();
-  // Declarando variáveis
-  const [loadingSend, setLoadingSend] = useState(false);
-  const [cooperativa, setCooperativa] = useState("");
-  const [file, setFile] = useState({});
-  const [titulo, setTitulo] = useState("");
-  const [mensagem, setMensagem] = useState("");
+  const loading = useSelector((state) => state.auth.loading);
 
-  async function handleSubmit(e) {
-    e.preventDefault();
+  function handlerSubmit(data, { resetForm }) {
+    let { name, cpf, email, phone, cooperativa } = data;
 
-    setLoadingSend(true);
+    dispatch(subscriptionRequest(name, cpf, email, phone, cooperativa));
 
-    // Enviando o arquivo
-    const { name, type } = file;
-    let codg = Math.floor(Math.random() * 1000000000000);
-    const ref = storage.ref(`envios/${codg}/${name}`);
-    let uploadTask = ref.put(file);
-
-    await uploadTask.on(
-      "state_changed",
-      function(snapshot) {
-        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        // console.log("Upload is " + progress + "% done");
-      },
-      function(error) {
-        console.log("Erro ao subir o arquivo:", error);
-        setLoadingSend(false);
-      },
-      function() {
-        uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-          const obj = {
-            cooperativa,
-            fileUrl: downloadURL,
-            fileType: type,
-            titulo,
-            mensagem,
-            diretorio: codg,
-            createdAt: Date.now()
-          };
-
-          dispatch(setEnviosRequest(obj));
-          document.getElementById("fileInput").value = null;
-          setCooperativa("");
-          setFile("");
-          setTitulo("");
-          setMensagem("");
-          setLoadingSend(false);
-        });
-      }
-    );
-  }
-
-  function onChangeFile(e) {
-    const file = e.target.files[0];
-    setFile(file);
+    resetForm();
   }
 
   return (
-    <div className="titulos">
-      <div className="col tituloPagina">COOPERATIVA ENVIE SUA AÇÃO</div>
-      <div className="itemForm">
-        <label>Nome da cooperativa</label>
-        <input
-          type="text"
-          name="cooperativa"
-          placeholder="Nome da cooperativa"
-          className="textForm"
-          value={cooperativa}
-          onChange={e => setCooperativa(e.target.value)}
-        />
-      </div>
-      <div className="itemForm">
-        <label>Arquivo (Foto, vídeo etc)</label>
-        <input
-          type="file"
-          id="fileInput"
-          className="textForm"
-          onChange={e => onChangeFile(e)}
-        />
-      </div>
-      <div className="itemForm">
-        <label>Título/ação</label>
-        <input
-          name="titulo"
-          placeholder="Título/ação"
-          className="textForm"
-          value={titulo}
-          onChange={e => setTitulo(e.target.value)}
-        />
-      </div>
-      <div className="itemForm">
-        <label>Mensagem</label>
-        <textarea
-          name="mensagem"
-          placeholder="Mensagem"
-          className="textArea"
-          value={mensagem}
-          onChange={e => setMensagem(e.target.value)}
-        />
-      </div>
+    <div>
+      <Form schema={schema} onSubmit={handlerSubmit}>
+        <div className='itemForm'>
+          <Input name='name' placeholder='Nome comlpeto' className='textForm' />
+        </div>
+        <div className='itemForm'>
+          <InputMask mask='999.999.999-99'>
+            {() => <Input name='cpf' placeholder='CPF' className='textForm' />}
+          </InputMask>
+        </div>
+        <div className='itemForm'>
+          <Input
+            type='email'
+            name='email'
+            placeholder='E-mail'
+            className='textForm'
+          />
+        </div>
+        <div className='itemForm'>
+          <InputMask mask='(99) 99999-9999'>
+            {() => (
+              <Input name='phone' placeholder='Telefone' className='textForm' />
+            )}
+          </InputMask>
+        </div>
+        <div className='itemForm'>
+          <Input
+            name='cooperativa'
+            placeholder='Cooperativa'
+            className='textForm'
+          />
+        </div>
 
-      <div className="buttonForm">
-        <button
-          onClick={handleSubmit}
-          type="submit"
-          className="button"
-          disabled={loadingSend}
-        >
-          {loadingSend ? "Aguarde..." : "Enviar"}
-        </button>
+        <div className='buttonForm'>
+          <button type='submit' className='button'>
+            {loading ? 'Aguarde...' : 'Enviar'}
+          </button>
+        </div>
+      </Form>
+      <div>
+        Cadastre-se para participar do sorteio de dois exemplares do livro
+        "Filosofia de Gestão - Cultura e Estratégia com Pessoas"
       </div>
     </div>
   );

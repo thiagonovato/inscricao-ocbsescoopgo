@@ -1,16 +1,16 @@
-import firebase from "firebase";
-import "@firebase/firestore";
-import ReduxSagaFirebase from "redux-saga-firebase";
+import firebase from 'firebase';
+import '@firebase/firestore';
+import ReduxSagaFirebase from 'redux-saga-firebase';
 
 const app = firebase.initializeApp({
-  apiKey: "AIzaSyCoVYH5eeunKIPywWVOQFdtonNjnrEeM-Q",
-  authDomain: "covid19-ocbsescoopgo.firebaseapp.com",
-  databaseURL: "https://covid19-ocbsescoopgo.firebaseio.com",
-  projectId: "covid19-ocbsescoopgo",
-  storageBucket: "covid19-ocbsescoopgo.appspot.com",
-  messagingSenderId: "833280003575",
-  appId: "1:833280003575:web:4841b5d9e70e6bd87232f2",
-  measurementId: "G-MEV89FF8G7"
+  apiKey: process.env.REACT_APP_APIKEY,
+  authDomain: process.env.REACT_APP_AUTHDOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASEURL,
+  projectId: process.env.REACT_APP_PROJECTID,
+  storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
+  appId: process.env.REACT_APP_APPID,
+  measurementId: process.env.REACT_APP_MEASUREMENTID,
 });
 
 export const db = firebase.firestore();
