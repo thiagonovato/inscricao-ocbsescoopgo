@@ -111,9 +111,13 @@ a.urlAcao {
   color: blue;
 }
 
+.textoMarcio {
+  margin-top: -130px;
+}
+
 .fotoMarcio {
   max-width: 400px;
-  margin-top: -150px;
+  margin-top: 0px;
 }
 
 @media (max-width: 1024px) {
@@ -127,8 +131,7 @@ a.urlAcao {
   .imagemSomosCoop {
     height: 12px;
   }
-  .fotoMarcio {
-    max-width: 400px;
+  .textoMarcio {
     margin-top: 0px;
   }
 }

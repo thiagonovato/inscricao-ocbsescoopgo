@@ -5,15 +5,14 @@ export function subscriptionRequest(name, cpf, email, phone, cooperativa) {
   };
 }
 
-export function signInSuccess(token, user) {
+export function subscriptionSuccess() {
   return {
-    type: '@auth/SIGN_IN_SUCCESS',
-    payload: { token, user },
+    type: '@subscription/SUBSCRIPTION_SUCCESS',
   };
 }
 
-export function signFailure() {
+export function subscriptionFailure() {
   return {
-    type: '@auth/SIGN_FAILURE',
+    type: '@subscription/SUBSCRIPTION_FAILURE',
   };
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import InputMask from 'react-input-mask';
@@ -24,7 +24,7 @@ const schema = Yup.object().shape({
 
 export default function FormComponent() {
   const dispatch = useDispatch();
-  const loading = useSelector((state) => state.auth.loading);
+  const loading = useSelector((state) => state.subscription.loading);
 
   function handlerSubmit(data, { resetForm }) {
     let { name, cpf, email, phone, cooperativa } = data;
@@ -38,7 +38,7 @@ export default function FormComponent() {
     <div>
       <Form schema={schema} onSubmit={handlerSubmit}>
         <div className='itemForm'>
-          <Input name='name' placeholder='Nome comlpeto' className='textForm' />
+          <Input name='name' placeholder='Nome completo' className='textForm' />
         </div>
         <div className='itemForm'>
           <InputMask mask='999.999.999-99'>
@@ -69,13 +69,13 @@ export default function FormComponent() {
         </div>
 
         <div className='buttonForm'>
-          <button type='submit' className='button'>
-            {loading ? 'Aguarde...' : 'Enviar'}
+          <button type='submit' className='button' disabled={loading}>
+            {loading ? 'Aguarde...' : 'Inscrever'}
           </button>
         </div>
       </Form>
       <div>
-        Cadastre-se para participar do sorteio de dois exemplares do livro
+        Inscreva-se para participar do sorteio de dois exemplares do livro
         "Filosofia de Gestão - Cultura e Estratégia com Pessoas"
       </div>
     </div>
